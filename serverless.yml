@@ -95,7 +95,7 @@ functions:
     handler: src/handlers.getDog
     events: 
       - httpApi:
-          path: /dogs/{id}
+          path: /dog/{id}
           method: get
   updateDog:
     handler: src/handlers.updateDog
