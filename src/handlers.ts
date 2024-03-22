@@ -39,7 +39,6 @@ const getById = async (dogID: string) => {
   const output = await documentClient.get({
     TableName: tableName,
     Key: {
-      // dogID: id
       dogID
     }
   }).promise()
@@ -127,7 +126,7 @@ export const deleteDog = async (event: APIGatewayProxyEvent): Promise<APIGateway
   try {
 
     const dogId = event.pathParameters?.id;
-    
+
     await getById(dogId as string);
 
     await documentClient.delete({
@@ -136,7 +135,7 @@ export const deleteDog = async (event: APIGatewayProxyEvent): Promise<APIGateway
         dogID: dogId
       }
     }).promise();
-    
+
     return {
       statusCode: 200,
       body: "deleted"
